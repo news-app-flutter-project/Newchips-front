@@ -1,5 +1,3 @@
-import {GestureResponderEvent} from 'react-native';
-
 export interface ITextBtn {
   text: string;
   weight?:
@@ -17,7 +15,7 @@ export interface ITextBtn {
     | undefined;
   size?: number;
   color?: string;
-  onPress?: (event: GestureResponderEvent) => void;
+  onPress?: () => void;
 }
 
 export interface IIcon {
@@ -25,5 +23,12 @@ export interface IIcon {
   type: string;
   color?: string;
   size?: number;
-  onPress?: (event: GestureResponderEvent) => void;
+  onPress?: () => void;
+}
+
+export interface IImage {
+  path: any;
+  w: number;
+  h: number;
+  onPress?: () => void;
 }

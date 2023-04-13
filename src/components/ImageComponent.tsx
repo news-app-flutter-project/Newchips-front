@@ -1,18 +1,21 @@
 import React from 'react';
-import {StyleSheet, Text, GestureResponderEvent} from 'react-native';
-import {ITextBtn} from '@util/interface';
+import {StyleSheet, Pressable, Image} from 'react-native';
+import {IImage} from '@util/interface';
 
-function ImageComponent(Props: ITextBtn): JSX.Element {
-  return <Text style={textStyle(Props).textStyle}>{Props.text}</Text>;
+function TouchableText(props: IImage): JSX.Element {
+  return (
+    <Pressable onPress={props.onPress}>
+      <Image style={imageBtn(props).imageBtn} source={props.path} />
+    </Pressable>
+  );
 }
 
-const textStyle = (props: ITextBtn) =>
+const imageBtn = (props: IImage) =>
   StyleSheet.create({
-    textStyle: {
-      fontSize: props.size ? props.size : 12,
-      fontWeight: props.weight ? props.weight : '500',
-      color: props.color ? props.color : 'black',
+    imageBtn: {
+      width: props.w,
+      height: props.h,
     },
   });
 
-export default ImageComponent;
+export default TouchableText;
