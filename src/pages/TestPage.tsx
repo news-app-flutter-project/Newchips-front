@@ -1,11 +1,46 @@
-import TouchableText from '@components/TouchableText';
 import React from 'react';
 import {View} from 'react-native';
 import TouchableIcon from '@components/TouchableIcon';
-
+import TouchableText from '@components/TouchableText';
+import ImageComponent from '@components/ImageComponent';
+import FastImage from 'react-native-fast-image';
 function TestPage(): JSX.Element {
   return (
     <View>
+      <ImageComponent
+        w={100}
+        h={100}
+        path={require('@assets/image/login.jpg')}
+      />
+      <ImageComponent
+        w={100}
+        h={100}
+        path={{
+          uri: 'https://res.cloudinary.com/djehfg3yk/image/upload/v1681392528/file-upload/tmp-5-1681392527696_fv624n.jpg',
+        }}
+      />
+      <ImageComponent
+        w={100}
+        h={100}
+        path={{
+          uri: 'https://res.cloudinary.com/djehfg3yk/image/upload/v1681395314/file-upload/tmp-6-1681395313788_b9ssqz.jpg',
+        }}
+      />
+      <ImageComponent
+        w={100}
+        h={100}
+        path={{
+          uri: 'https://res.cloudinary.com/djehfg3yk/image/upload/v1681395314/file-upload/tmp-6-1681395313788_b9ssqz.jpg',
+        }}
+      />
+      <FastImage
+        style={{width: 100, height: 100}}
+        source={{
+          uri: 'https://res.cloudinary.com/djehfg3yk/image/upload/v1681395314/file-upload/tmp-6-1681395313788_b9ssqz.jpg',
+          priority: FastImage.priority.high,
+        }}
+        resizeMode={FastImage.resizeMode.contain}
+      />
       <TouchableText
         text="assss"
         onPress={() => {
