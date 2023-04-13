@@ -4,8 +4,8 @@
  *
  * @format
  */
-import TestPage from './pages/TestPage';
-import LoginPage from './pages/LoginPage';
+import TestPage from '@pages/TestPage';
+import LoginPage from '@pages/LoginPage';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 

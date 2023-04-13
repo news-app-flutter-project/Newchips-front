@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, GestureResponderEvent} from 'react-native';
-import {ITextBtn} from './../interface';
+import {ITextBtn} from '@util/interface';
 
-function ImageComponent(Props: ITextBtn): JSX.Element {
+function TextComponent(Props: ITextBtn): JSX.Element {
   return <Text style={textStyle(Props).textStyle}>{Props.text}</Text>;
 }
 
@@ -15,4 +15,4 @@ const textStyle = (props: ITextBtn) =>
     },
   });
 
-export default ImageComponent;
+export default TextComponent;
