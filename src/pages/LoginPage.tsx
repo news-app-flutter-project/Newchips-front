@@ -8,7 +8,7 @@ import {
   Pressable,
 } from 'react-native';
 
-const image = require('../image/login.jpg');
+const image = require('@assets/image/login.jpg');
 function LoginPage(): JSX.Element {
   const [text, onChangeText] = React.useState('');
   const [number, onChangeNumber] = React.useState('');

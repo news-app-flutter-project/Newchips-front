@@ -1,7 +1,7 @@
-import TouchableText from '../component/TouchableText';
+import TouchableText from '@components/TouchableText';
 import React from 'react';
 import {View} from 'react-native';
-import TouchableIcon from '../component/TouchableIcon';
+import TouchableIcon from '@components/TouchableIcon';
 
 function TestPage(): JSX.Element {
   return (

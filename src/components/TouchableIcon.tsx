@@ -4,7 +4,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
-import {IIcon} from '../interface';
+import {IIcon} from '@util/interface';
 
 function TouchableIcon(Props: IIcon): JSX.Element {
   {
