@@ -8,7 +8,94 @@ import ScrollViewComponent from '@components/ScrollViewComponent';
 function TestPage(): JSX.Element {
   return (
     <View>
-      <ScrollViewComponent gapVertical={20} gapHorizental={20}>
+      <ScrollViewComponent gapVertical={16} gapHorizental={10}>
+        <TouchableText
+          text="전체"
+          bgColor="#FFED00"
+          pt={10}
+          pb={10}
+          pl={16}
+          pr={16}
+          radius={20}
+          onPress={() => {
+            console.log('assasasaas');
+          }}
+        />
+        <TouchableText
+          text="정치"
+          bgColor="#D9D9D9"
+          pt={10}
+          pb={10}
+          pl={16}
+          pr={16}
+          radius={20}
+          onPress={() => {
+            console.log('assasasaas');
+          }}
+        />
+        <TouchableText
+          text="경제"
+          bgColor="#D9D9D9"
+          pt={10}
+          pb={10}
+          pl={16}
+          pr={16}
+          radius={20}
+          onPress={() => {
+            console.log('assasasaas');
+          }}
+        />
+        <TouchableText
+          text="사회"
+          bgColor="#D9D9D9"
+          pt={10}
+          pb={10}
+          pl={16}
+          pr={16}
+          radius={20}
+          onPress={() => {
+            console.log('assasasaas');
+          }}
+        />
+        <TouchableText
+          text="생활"
+          bgColor="#D9D9D9"
+          pt={10}
+          pb={10}
+          pl={16}
+          pr={16}
+          radius={20}
+          onPress={() => {
+            console.log('assasasaas');
+          }}
+        />
+        <TouchableText
+          text="IT/과학"
+          bgColor="#D9D9D9"
+          pt={10}
+          pb={10}
+          pl={16}
+          pr={16}
+          radius={20}
+          onPress={() => {
+            console.log('assasasaas');
+          }}
+        />
+        <TouchableText
+          text="랭킹"
+          bgColor="#D9D9D9"
+          pt={10}
+          pb={10}
+          pl={16}
+          pr={16}
+          radius={20}
+          onPress={() => {
+            console.log('assasasaas');
+          }}
+        />
+      </ScrollViewComponent>
+
+      <ScrollViewComponent gapVertical={16} gapHorizental={10}>
         <ImageComponent
           w={100}
           h={100}
