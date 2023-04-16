@@ -27,8 +27,15 @@ export interface IIcon {
 }
 
 export interface IImage {
-  path: any;
+  path: object;
   w: number;
   h: number;
   onPress?: () => void;
+}
+
+export interface IScrollView {
+  children: React.ReactNode;
+
+  gapHorizental?: number;
+  gapVertical?: number;
 }

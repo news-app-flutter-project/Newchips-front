@@ -1,11 +1,13 @@
 import React from 'react';
-import {StyleSheet, Pressable, Image} from 'react-native';
+import {StyleSheet, Pressable} from 'react-native';
 import {IImage} from '@util/interface';
+import FastImage from 'react-native-fast-image';
 
-function TouchableText(props: IImage): JSX.Element {
+function ImageComponent(props: IImage): JSX.Element {
+  // const source = props.path as ImageSourcePropType; // 캐스팅
   return (
     <Pressable onPress={props.onPress}>
-      <Image style={imageBtn(props).imageBtn} source={props.path} />
+      <FastImage style={imageBtn(props).imageBtn} source={props.path} />
     </Pressable>
   );
 }
@@ -18,4 +20,4 @@ const imageBtn = (props: IImage) =>
     },
   });
 
-export default TouchableText;
+export default ImageComponent;
