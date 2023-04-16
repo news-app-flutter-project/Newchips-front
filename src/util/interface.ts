@@ -15,6 +15,12 @@ export interface ITextBtn {
     | undefined;
   size?: number;
   color?: string;
+  bgColor?: string;
+  pt?: number;
+  pb?: number;
+  pl?: number;
+  pr?: number;
+  radius?: number;
   onPress?: () => void;
 }
 
