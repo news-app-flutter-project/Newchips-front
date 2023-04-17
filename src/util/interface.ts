@@ -36,6 +36,8 @@ export interface IImage {
   path: object;
   w: number;
   h: number;
+  flexBasis?: number | 'auto';
+  resizeMode?: string;
   onPress?: () => void;
 }
 
@@ -44,4 +46,8 @@ export interface IScrollView {
 
   gapHorizental?: number;
   gapVertical?: number;
+}
+
+export interface IHeaderView {
+  title: string;
 }
