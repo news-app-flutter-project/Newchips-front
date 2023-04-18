@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet, Pressable, Text, GestureResponderEvent} from 'react-native';
 import {ITextBtn} from '@util/interface';
-import TextComponent from '@components/TextComponent';
 function TouchableText(props: ITextBtn): JSX.Element {
   return (
     <Pressable onPress={props.onPress}>

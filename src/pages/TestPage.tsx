@@ -9,7 +9,8 @@ import HeaderComponent from '~/components/HeaderComponent';
 function TestPage(): JSX.Element {
   return (
     <View>
-      <HeaderComponent title="Test Page" />
+      <HeaderComponent title="YTN" />
+      <HeaderComponent />
       <ScrollViewComponent gapVertical={16} gapHorizental={10}>
         <TouchableText
           text="전체"

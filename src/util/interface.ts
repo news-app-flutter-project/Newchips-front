@@ -49,5 +49,5 @@ export interface IScrollView {
 }
 
 export interface IHeaderView {
-  title: string;
+  title?: string;
 }
