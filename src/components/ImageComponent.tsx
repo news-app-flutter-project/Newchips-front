@@ -38,6 +38,7 @@ const imageBtn = (props: IImage) =>
       width: props.w,
       height: props.h,
       flexBasis: props.flexBasis,
+      borderRadius: props.radius,
     },
   });
 

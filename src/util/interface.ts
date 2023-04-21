@@ -41,6 +41,7 @@ export interface IImage {
   flexBasis?: number | 'auto';
   resizeMode?: string;
   onPress?: () => void;
+  radius?: number;
 }
 
 export interface IScrollView {
@@ -81,4 +82,13 @@ export interface IFlexView {
   mr?: number | undefined;
   mb?: number | undefined;
   gap?: number | undefined;
+}
+
+export interface ICardView {
+  color?: string;
+  size?: number;
+  title: string;
+  url: string;
+  source: string;
+  onPress?: () => void;
 }
