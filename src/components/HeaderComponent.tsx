@@ -60,7 +60,7 @@ function HeaderComponent(props: IHeaderView): JSX.Element {
       <View>
         <FlexViewComponent
           flexDirection="row"
-          justifyContent="space-between"
+          justifyContent="center"
           alignItems="center"
           w="100%"
           h={60}>
