@@ -4,6 +4,10 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {IIcon} from '@util/interface';
 
 function TouchableIcon(Props: IIcon): JSX.Element {
@@ -29,10 +33,34 @@ function TouchableIcon(Props: IIcon): JSX.Element {
           <Entypo name={Props.name} style={buttonText(Props).buttonText} />
         </Pressable>
       );
-    } else {
+    } else if (Props.type == 'Octicons') {
       return (
         <Pressable onPress={Props.onPress}>
           <Octicons name={Props.name} style={buttonText(Props).buttonText} />
+        </Pressable>
+      );
+    } else if (Props.type == 'Fontisto') {
+      return (
+        <Pressable onPress={Props.onPress}>
+          <Fontisto name={Props.name} style={buttonText(Props).buttonText} />
+        </Pressable>
+      );
+    } else if (Props.type == 'Ionicons') {
+      return (
+        <Pressable onPress={Props.onPress}>
+          <Ionicons name={Props.name} style={buttonText(Props).buttonText} />
+        </Pressable>
+      );
+    } else if (Props.type == 'FontAwesome') {
+      return (
+        <Pressable onPress={Props.onPress}>
+          <FontAwesome name={Props.name} style={buttonText(Props).buttonText} />
+        </Pressable>
+      );
+    } else {
+      return (
+        <Pressable onPress={Props.onPress}>
+          <FontAwesome name={Props.name} style={buttonText(Props).buttonText} />
         </Pressable>
       );
     }

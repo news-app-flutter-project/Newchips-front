@@ -6,6 +6,7 @@
  */
 import TestPage from '@pages/TestPage';
 import LoginPage from '@pages/LoginPage';
+import MainPage from '@pages/MainPage';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 
@@ -20,7 +21,8 @@ import {
   ImageBackground,
   LogBox,
 } from 'react-native';
-
+import NavigateComponent from './src/components/NavigateComponent';
+import HeaderComponent from './src/components/HeaderComponent';
 import {
   Colors,
   DebugInstructions,
@@ -38,7 +40,7 @@ function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? Colors.darker : '#FFFFFF',
   };
 
   return (
@@ -47,8 +49,12 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
+      <HeaderComponent />
+
       {/* <LoginPage /> */}
-      <TestPage />
+      {/* <TestPage /> */}
+      <MainPage />
+      <NavigateComponent />
     </SafeAreaView>
   );
 }

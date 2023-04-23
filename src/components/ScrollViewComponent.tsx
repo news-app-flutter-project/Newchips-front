@@ -1,43 +1,46 @@
 import React from 'react';
 import {View, ScrollView} from 'react-native';
 import {IScrollView} from '@util/interface';
+import ImageComponent from '@components/ImageComponent';
+import TouchableText from '@components/TouchableText';
 
-function SliderComponent(props: IScrollView): JSX.Element {
-  const childCount = React.Children.count(props.children);
+function CardViewComponent(props: IScrollView): JSX.Element {
   {
-    if (childCount > 1) {
-      return (
-        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
-          {Object.values(props.children || {})?.map((item, idx) => (
-            <View
-              key={idx}
-              style={{
-                marginTop: (props.gapVertical || 0) / 2,
-                marginBottom: (props.gapVertical || 0) / 2,
-                marginRight: (props.gapHorizental || 0) / 2,
-                marginLeft: (props.gapHorizental || 0) / 2,
-              }}>
-              {item}
-            </View>
-          ))}
-        </ScrollView>
-      );
-    } else {
-      return (
-        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
+    return (
+      <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
+        {Object.values(props.scrollData).map((item, idx) => (
           <View
+            key={idx}
             style={{
               marginTop: (props.gapVertical || 0) / 2,
               marginBottom: (props.gapVertical || 0) / 2,
               marginRight: (props.gapHorizental || 0) / 2,
               marginLeft: (props.gapHorizental || 0) / 2,
+              width: 240,
             }}>
-            {props.children}
+            <View style={{marginBottom: 8}}>
+              <ImageComponent
+                w={240}
+                h={128}
+                radius={10}
+                path={{
+                  uri: item.url,
+                }}
+              />
+            </View>
+            <TouchableText pb={8} text={item.title} size={14} weight="500" />
+
+            <TouchableText
+              text={`${item.category}   ●  ${item.time}`}
+              size={12}
+              weight="400"
+              color="#7B7B7B"
+            />
           </View>
-        </ScrollView>
-      );
-    }
+        ))}
+      </ScrollView>
+    );
   }
 }
 
-export default SliderComponent;
+export default CardViewComponent;
