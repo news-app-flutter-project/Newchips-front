@@ -5,7 +5,6 @@ import ImageComponent from '@components/ImageComponent';
 import TouchableText from '@components/TouchableText';
 
 function CardViewComponent(props: IScrollView): JSX.Element {
-  const childCount = props.scrollData.length;
   {
     return (
       <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
@@ -19,18 +18,20 @@ function CardViewComponent(props: IScrollView): JSX.Element {
               marginLeft: (props.gapHorizental || 0) / 2,
               width: 240,
             }}>
-            <ImageComponent
-              w={240}
-              h={128}
-              path={{
-                uri: item.url,
-              }}
-            />
-
-            <TouchableText text={item.title} size={14} weight="500" />
+            <View style={{marginBottom: 8}}>
+              <ImageComponent
+                w={240}
+                h={128}
+                radius={10}
+                path={{
+                  uri: item.url,
+                }}
+              />
+            </View>
+            <TouchableText pb={8} text={item.title} size={14} weight="500" />
 
             <TouchableText
-              text={`${item.category}  ● ${item.time}`}
+              text={`${item.category}   ●  ${item.time}`}
               size={12}
               weight="400"
               color="#7B7B7B"

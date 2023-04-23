@@ -103,3 +103,9 @@ export interface ICardView {
   size?: number;
   onPress?: () => void;
 }
+export interface IHeaderTitle {
+  title: string;
+  color?: string;
+  size?: number;
+  onPress?: () => void;
+}

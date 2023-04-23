@@ -6,6 +6,7 @@
  */
 import TestPage from '@pages/TestPage';
 import LoginPage from '@pages/LoginPage';
+import MainPage from '@pages/MainPage';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 
@@ -38,7 +39,7 @@ function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? Colors.darker : '#FFFFFF',
   };
 
   return (
@@ -48,7 +49,8 @@ function App(): JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       {/* <LoginPage /> */}
-      <TestPage />
+      {/* <TestPage /> */}
+      <MainPage />
     </SafeAreaView>
   );
 }
