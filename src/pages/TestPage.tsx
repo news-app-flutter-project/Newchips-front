@@ -9,6 +9,7 @@ import CardViewComponent from '@components/CardViewComponent';
 import CategoryComponent from './../components/CategoryComponent';
 import HeadTitle from './../components/HeadTitle';
 import LineComponent from './../components/LineComponent';
+import NavigateComponent from './../components/NavigateComponent';
 
 function TestPage(): JSX.Element {
   const scrollData = [
@@ -54,6 +55,7 @@ function TestPage(): JSX.Element {
   ];
   return (
     <ScrollView>
+      <NavigateComponent />
       <HeadTitle
         title="나의 관심사 추천 뉴스"
         onPress={() => {

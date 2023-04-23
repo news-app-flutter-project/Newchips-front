@@ -21,7 +21,8 @@ import {
   ImageBackground,
   LogBox,
 } from 'react-native';
-
+import NavigateComponent from './src/components/NavigateComponent';
+import HeaderComponent from './src/components/HeaderComponent';
 import {
   Colors,
   DebugInstructions,
@@ -48,9 +49,12 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
+      <HeaderComponent />
+
       {/* <LoginPage /> */}
       {/* <TestPage /> */}
       <MainPage />
+      <NavigateComponent />
     </SafeAreaView>
   );
 }

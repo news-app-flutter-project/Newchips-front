@@ -82,8 +82,6 @@ function MainPage(): JSX.Element {
   ];
   return (
     <ScrollView>
-      <HeaderComponent />
-
       <CategoryComponent />
       <View style={{marginTop: 24, marginRight: 16, marginLeft: 16}}>
         <HeadTitle
