@@ -43,10 +43,18 @@ export interface IImage {
   onPress?: () => void;
   radius?: number;
 }
-
+interface IscrollData {
+  url: string;
+  title: string;
+  category: string;
+  time: string;
+}
 export interface IScrollView {
-  children: React.ReactNode;
-
+  scrollData: Array<IscrollData>;
+  gapHorizental?: number;
+  gapVertical?: number;
+}
+export interface ICategory {
   gapHorizental?: number;
   gapVertical?: number;
 }
@@ -84,11 +92,14 @@ export interface IFlexView {
   gap?: number | undefined;
 }
 
+interface ICardData {
+  url: string | '';
+  title: string;
+  source: string;
+}
 export interface ICardView {
+  cardData: Array<ICardData>;
   color?: string;
   size?: number;
-  title: string;
-  url: string;
-  source: string;
   onPress?: () => void;
 }
