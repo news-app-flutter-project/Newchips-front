@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View} from 'react-native';
+import {ScrollView, Button, Text, View} from 'react-native';
 import TouchableIcon from '@components/TouchableIcon';
 import TouchableText from '@components/TouchableText';
 import ImageComponent from '@components/ImageComponent';
@@ -10,6 +10,10 @@ import CategoryComponent from './../components/CategoryComponent';
 import HeadTitle from './../components/HeadTitle';
 import LineComponent from './../components/LineComponent';
 import NavigateComponent from './../components/NavigateComponent';
+import {useDispatch, useSelector} from 'react-redux';
+import {RootState} from '~/../RTK/slices';
+import {countUp, countDown} from '~/../RTK/slices/counter';
+import {setMenu} from '~/../RTK/slices/navigate';
 
 function TestPage(): JSX.Element {
   const scrollData = [
@@ -53,8 +57,21 @@ function TestPage(): JSX.Element {
       source: '경기일보',
     },
   ];
+  const count = useSelector((state: RootState) => state.counter.count);
+  const menu = useSelector((state: RootState) => state.navigate.menu);
+  const dispatch = useDispatch();
+
+  const onPressCounterUp = () => {
+    dispatch(countUp());
+  };
+  const onPressCounterDown = () => {
+    dispatch(countDown());
+  };
   return (
     <ScrollView>
+      <Button title="카운트업" onPress={onPressCounterUp} />
+      <Button title="카운트다운" onPress={onPressCounterDown} />
+      <Text>{count}</Text>
       <NavigateComponent />
       <HeadTitle
         title="나의 관심사 추천 뉴스"
@@ -140,48 +157,5 @@ function TestPage(): JSX.Element {
     </ScrollView>
   );
 }
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//   },
-//   image: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     padding: 16,
-//   },
-//   text: {
-//     color: 'white',
-//     fontSize: 24,
-//     lineHeight: 32,
-//     fontWeight: '400',
-//     textAlign: 'left',
-//   },
-//   input: {
-//     color: 'white',
-//     paddingVertical: 0,
-//     outline: 'none',
-//     borderBottomWidth: 2,
-//     marginLeft: 5,
-//     borderColor: 'white',
-//   },
-//   button: {
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     paddingVertical: 12,
-//     paddingHorizontal: 32,
-//     borderRadius: 24,
-//     elevation: 3,
-//     backgroundColor: 'white',
-//     padding: 15,
-//   },
-//   buttonText: {
-//     color: 'black',
-//     fontSize: 12,
-//   },
-//   textBtn: {
-//     color: 'white',
-//     fontSize: 12,
-//   },
-// });
 
 export default TestPage;

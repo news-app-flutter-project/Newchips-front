@@ -9,7 +9,9 @@ import LoginPage from '@pages/LoginPage';
 import MainPage from '@pages/MainPage';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
-
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import rootReducer from './RTK/slices';
 import {
   SafeAreaView,
   ScrollView,
@@ -42,20 +44,23 @@ function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : '#FFFFFF',
   };
+  const store = createStore(rootReducer);
 
   return (
-    <SafeAreaView style={[backgroundStyle, styles.container]}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <HeaderComponent />
+    <Provider store={store}>
+      <SafeAreaView style={[backgroundStyle, styles.container]}>
+        <StatusBar
+          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          backgroundColor={backgroundStyle.backgroundColor}
+        />
+        <HeaderComponent />
 
-      {/* <LoginPage /> */}
-      {/* <TestPage /> */}
-      <MainPage />
-      <NavigateComponent />
-    </SafeAreaView>
+        {/* <LoginPage /> */}
+        {/* <TestPage /> */}
+        <MainPage />
+        <NavigateComponent />
+      </SafeAreaView>
+    </Provider>
   );
 }
 
