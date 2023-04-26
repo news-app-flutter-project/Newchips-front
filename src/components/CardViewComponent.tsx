@@ -10,47 +10,47 @@ function CardViewComponent(props: ICardView): JSX.Element {
       {Object.values(props.cardData).map((item, idx) => {
         if (item.url) {
           return (
-            <View key={idx}>
-              <Pressable
-                style={{
-                  padding: 16,
-                  borderWidth: 1,
-                  borderRadius: 10,
-                  backgroundColor: '#FFFFFF',
-                  marginTop: 16 / 2,
-                  marginBottom: 16 / 2,
-                  marginRight: 10 / 2,
-                  marginLeft: 10 / 2,
-                }}
-                onPress={() => {}}>
-                <FlexViewComponent flexDirection="row">
-                  <ImageComponent
-                    radius={15}
-                    w={71}
-                    h={71}
-                    path={{
-                      uri: `${item.url}`,
-                    }}
-                  />
-                  <View style={{flex: 1, marginLeft: 16}}>
-                    <Text
-                      numberOfLines={2}
-                      ellipsizeMode="tail"
-                      style={buttonText(props).titleText}>
-                      {item.title}
-                    </Text>
-                    <Text style={buttonText(props).sourceText}>
-                      {'\n'}
-                      출처:{item.source}
-                    </Text>
-                  </View>
-                </FlexViewComponent>
-              </Pressable>
-            </View>
+            <Pressable
+              key={idx}
+              style={{
+                padding: 16,
+                borderWidth: 1,
+                borderRadius: 10,
+                backgroundColor: '#FFFFFF',
+                marginTop: 16 / 2,
+                marginBottom: 16 / 2,
+                marginRight: 10 / 2,
+                marginLeft: 10 / 2,
+              }}
+              onPress={() => {}}>
+              <FlexViewComponent flexDirection="row">
+                <ImageComponent
+                  radius={15}
+                  w={71}
+                  h={71}
+                  path={{
+                    uri: `${item.url}`,
+                  }}
+                />
+                <View style={{flex: 1, marginLeft: 16}}>
+                  <Text
+                    numberOfLines={2}
+                    ellipsizeMode="tail"
+                    style={buttonText(props).titleText}>
+                    {item.title}
+                  </Text>
+                  <Text style={buttonText(props).sourceText}>
+                    {'\n'}
+                    출처:{item.source}
+                  </Text>
+                </View>
+              </FlexViewComponent>
+            </Pressable>
           );
         } else {
           return (
             <Pressable
+              key={idx}
               style={{
                 padding: 16,
                 borderWidth: 1,
