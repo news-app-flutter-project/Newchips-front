@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, Pressable, Text, View} from 'react-native';
 import {ICardView} from '@util/interface';
-import ImageComponent from '@components/ImageComponent';
-import FlexViewComponent from '@components/FlexViewComponent';
+import ImageComponent from '@components/atoms/ImageComponent';
+import FlexViewComponent from '@components/atoms/FlexViewComponent';
 
 function CardViewComponent(props: ICardView): JSX.Element {
   return (

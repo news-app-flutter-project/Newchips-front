@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 const image = require('@assets/image/login.jpg');
-function LoginPage(): JSX.Element {
+function LoginTemplate(): JSX.Element {
   const [text, onChangeText] = React.useState('');
   const [number, onChangeNumber] = React.useState('');
   return (
@@ -97,4 +97,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginPage;
+export default LoginTemplate;

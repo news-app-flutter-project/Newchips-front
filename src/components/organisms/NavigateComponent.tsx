@@ -1,8 +1,8 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
-import TouchableIcon from './TouchableIcon';
-import FlexViewComponent from './FlexViewComponent';
-import TouchableText from './TouchableText';
+import {View} from 'react-native';
+import TouchableIcon from '@components/atoms/TouchableIcon';
+import FlexViewComponent from '@components/atoms/FlexViewComponent';
+import TouchableText from '@components/atoms/TouchableText';
 
 function NavigateComponent({navigation}: any): JSX.Element {
   const gotoHome = () => {
@@ -87,19 +87,5 @@ function NavigateComponent({navigation}: any): JSX.Element {
     </View>
   );
 }
-
-const buttonText = (props: any) =>
-  StyleSheet.create({
-    titleText: {
-      fontSize: props.size ? props.size : 16,
-      fontWeight: '500',
-      color: props.color ? props.color : 'black',
-    },
-    buttonText: {
-      fontSize: props.size ? props.size : 14,
-      fontWeight: '400',
-      color: '#E25C28',
-    },
-  });
 
 export default NavigateComponent;

@@ -1,9 +1,8 @@
 import React from 'react';
-import {StyleSheet, Pressable, Text, GestureResponderEvent} from 'react-native';
+import {StyleSheet, Pressable, Text} from 'react-native';
 import {IHeaderTitle} from '@util/interface';
-import FlexViewComponent from './FlexViewComponent';
-import TouchableIcon from '@components/TouchableIcon';
-import ImageComponent from '@components/ImageComponent';
+import FlexViewComponent from '@components/atoms/FlexViewComponent';
+import TouchableIcon from '@components/atoms/TouchableIcon';
 function HeadTitle(props: IHeaderTitle): JSX.Element {
   return (
     <FlexViewComponent

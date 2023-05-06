@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, GestureResponderEvent} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 import {ITextBtn} from '@util/interface';
 
 function TextComponent(Props: ITextBtn): JSX.Element {
