@@ -14,29 +14,23 @@ import {createStore} from 'redux';
 import rootReducer from './RTK/slices';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
-  View,
-  ImageBackground,
   LogBox,
 } from 'react-native';
-import NavigateComponent from './src/components/NavigateComponent';
+import NavigateComponent from '@components/NavigateComponent';
 import HeaderComponent from './src/components/HeaderComponent';
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
+const Stack = createNativeStackNavigator();
 function App(): JSX.Element {
   LogBox.ignoreLogs(['Remote debugger']);
   const isDarkMode = useColorScheme() === 'dark';
@@ -49,21 +43,31 @@ function App(): JSX.Element {
   return (
     <Provider store={store}>
       <SafeAreaView style={[backgroundStyle, styles.container]}>
-        <StatusBar
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={backgroundStyle.backgroundColor}
-        />
         <HeaderComponent />
-
-        {/* <LoginPage /> */}
-        {/* <TestPage /> */}
-        <MainPage />
-        <NavigateComponent />
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Screen name="Home" component={MainPage} />
+            <Stack.Screen name="Search" component={LoginPage} />
+            <Stack.Screen name="MyNews" component={TestPage} />
+            <Stack.Screen name="Profile" component={MainPage} />
+          </Stack.Navigator>
+        </NavigationContainer>
       </SafeAreaView>
     </Provider>
   );
 }
+{
+  /* <StatusBar
+barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+backgroundColor={backgroundStyle.backgroundColor}
+/>
+<HeaderComponent />
 
+<LoginPage /> 
+<TestPage />
+<MainPage />
+<NavigateComponent /> */
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,

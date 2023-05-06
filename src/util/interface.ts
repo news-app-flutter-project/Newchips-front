@@ -90,6 +90,7 @@ export interface IFlexView {
   mr?: number | undefined;
   mb?: number | undefined;
   gap?: number | undefined;
+  onPress?: () => void;
 }
 
 interface ICardData {
