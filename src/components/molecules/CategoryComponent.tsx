@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, ScrollView} from 'react-native';
 import {ICategory} from '@util/interface';
-import TouchableText from '@components/TouchableText';
+import TouchableText from '@components/atoms/TouchableText';
 
 function CategoryComponent(props: ICategory): JSX.Element {
   return (

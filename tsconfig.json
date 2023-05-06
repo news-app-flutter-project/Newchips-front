@@ -6,7 +6,6 @@
       "~/*": ["./*"],
       "@components/*": ["components/*"],
       "@assets/*": ["assets/*"],
-      "@pages/*": ["pages/*"],
       "@util/*": ["util/*"],
     },
   },

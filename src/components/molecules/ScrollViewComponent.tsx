@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, ScrollView} from 'react-native';
 import {IScrollView} from '@util/interface';
-import ImageComponent from '@components/ImageComponent';
-import TouchableText from '@components/TouchableText';
+import ImageComponent from '@components/atoms/ImageComponent';
+import TouchableText from '@components/atoms/TouchableText';
 
-function CardViewComponent(props: IScrollView): JSX.Element {
+function ScrollViewComponent(props: IScrollView): JSX.Element {
   {
     return (
       <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
@@ -43,4 +43,4 @@ function CardViewComponent(props: IScrollView): JSX.Element {
   }
 }
 
-export default CardViewComponent;
+export default ScrollViewComponent;

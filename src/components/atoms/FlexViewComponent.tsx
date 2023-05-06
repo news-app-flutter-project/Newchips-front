@@ -1,8 +1,12 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Pressable} from 'react-native';
 import {IFlexView} from '@util/interface';
 function FlexViewComponent(props: IFlexView): JSX.Element {
-  return <View style={flexViewStyle(props).flexView}>{props.children}</View>;
+  return (
+    <Pressable onPress={props.onPress} style={flexViewStyle(props).flexView}>
+      {props.children}
+    </Pressable>
+  );
 }
 
 const flexViewStyle = (props: IFlexView) =>

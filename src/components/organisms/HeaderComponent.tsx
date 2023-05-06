@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {IHeaderView} from '@util/interface';
-import ImageComponent from '@components/ImageComponent';
-import TouchableIcon from '@components/TouchableIcon';
-import TouchableText from '@components/TouchableText';
-import FlexViewComponent from '@components/FlexViewComponent';
+import ImageComponent from '@components/atoms/ImageComponent';
+import TouchableIcon from '@components/atoms/TouchableIcon';
+import TouchableText from '@components/atoms/TouchableText';
+import FlexViewComponent from '@components/atoms/FlexViewComponent';
 
 function HeaderComponent(props: IHeaderView): JSX.Element {
   /* <TextComponent text={props.title} /> */
