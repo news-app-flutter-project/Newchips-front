@@ -5,9 +5,8 @@ import NavigateComponent from '@components/organisms/NavigateComponent';
 function LoginScreen({navigation}: any): JSX.Element {
   return (
     <>
-      <HeaderComponent />
       <LoginTemplate />
-      <NavigateComponent navigation={navigation} />
+      {/* <NavigateComponent navigation={navigation} /> */}
     </>
   );
 }
