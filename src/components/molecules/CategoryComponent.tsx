@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { StyleSheet, Text, FlatList, Pressable } from 'react-native';
+import { StyleSheet, Text, FlatList, Pressable, View } from 'react-native';
 
 const CategoryData = [
     {
@@ -56,6 +56,7 @@ const CategoryComponent = () => {
             renderItem={({ item }) => (
                 <Item id={item.id} title={item.title} selected={item.id === selectedCategoryData} />
             )}
+            ItemSeparatorComponent={() => <View style={styles.separator} />}
             keyExtractor={item => item.id}
         />
     );
@@ -63,7 +64,7 @@ const CategoryComponent = () => {
 
 const styles = StyleSheet.create({
     container: {
-        paddingHorizontal: 11,
+        paddingHorizontal: 16,
         paddingVertical: 16,
     },
     selectedItem: {
@@ -73,7 +74,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         height: 40,
-        marginHorizontal: 5,
         borderRadius: 20,
     },
     unselectedItem: {
@@ -83,8 +83,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         height: 40,
-        marginHorizontal: 5,
         borderRadius: 20,
+    },
+    separator: {
+        width: 10,
     },
     title: {
         fontSize: 12,
