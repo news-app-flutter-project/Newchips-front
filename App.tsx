@@ -5,21 +5,21 @@ import { StyleSheet, useColorScheme, LogBox, StatusBar } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TestScreen from '@components/screens/TestScreen';
 import LoginScreen from '@components/screens/LoginScreen';
 import HomeScreen from '@components/screens/HomeScreen';
 import rootReducer from './RTK/slices';
+import NavigateComponent from '@components/molecules/NavigateComponent';
 
-const Stack = createNativeStackNavigator();
-
+const Tab = createBottomTabNavigator();
 function App(): JSX.Element {
     LogBox.ignoreLogs(['Remote debugger']);
     const isDarkMode = useColorScheme() === 'dark';
     const backgroundStyle = {
         backgroundColor: isDarkMode ? Colors.darker : '#FFFFFF',
     };
+
     const store = createStore(rootReducer);
 
     return (
@@ -28,12 +28,14 @@ function App(): JSX.Element {
                 <SafeAreaView style={[backgroundStyle, styles.container]}>
                     <StatusBar translucent={true} backgroundColor="transparent" barStyle="dark-content" />
                     <NavigationContainer>
-                        <Stack.Navigator screenOptions={{ headerShown: false }}>
-                            <Stack.Screen name="Home" component={HomeScreen} />
-                            <Stack.Screen name="Search" component={LoginScreen} />
-                            <Stack.Screen name="MyNews" component={TestScreen} />
-                            <Stack.Screen name="Profile" component={HomeScreen} />
-                        </Stack.Navigator>
+                        <Tab.Navigator
+                            tabBar={props => <NavigateComponent {...props} />}
+                            screenOptions={{ headerShown: false }}>
+                            <Tab.Screen name="Home" component={HomeScreen} />
+                            <Tab.Screen name="Search" component={LoginScreen} />
+                            <Tab.Screen name="MyNews" component={TestScreen} />
+                            <Tab.Screen name="Profile" component={HomeScreen} />
+                        </Tab.Navigator>
                     </NavigationContainer>
                 </SafeAreaView>
             </SafeAreaProvider>

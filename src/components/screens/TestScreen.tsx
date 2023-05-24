@@ -7,7 +7,7 @@ function LoginScreen({navigation}: any): JSX.Element {
     <>
       <HeaderComponent />
       <TestTemplate />
-      <NavigateComponent navigation={navigation} />
+      {/* <NavigateComponent navigation={navigation} /> */}
     </>
   );
 }

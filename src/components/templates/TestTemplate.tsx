@@ -13,6 +13,7 @@ import NavigateComponent from '@components/organisms/NavigateComponent';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '~/../RTK/slices';
 import { countUp, countDown } from '~/../RTK/slices/counter';
+import { a } from '~/api/profile';
 
 function TestTemplate(): JSX.Element {
     const scrollData = [
@@ -65,11 +66,18 @@ function TestTemplate(): JSX.Element {
     const onPressCounterDown = () => {
         dispatch(countDown());
     };
+    const onPressAPI = () => {
+        console.log('hi');
+
+        a();
+    };
     return (
         <ScrollView>
             <Button title="카운트업" onPress={onPressCounterUp} />
             <Button title="카운트다운" onPress={onPressCounterDown} />
+
             <Text>{count}</Text>
+            <Button title="api호출" onPress={onPressAPI} />
             <NavigateComponent />
             <HeadTitle
                 title="나의 관심사 추천 뉴스"

@@ -7,7 +7,7 @@ function HomeScreen({ navigation }: any): JSX.Element {
         <>
             <HeaderComponent />
             <HomeTemplate />
-            <NavigateComponent navigation={navigation} />
+            {/* <NavigateComponent navigation={navigation} /> */}
         </>
     );
 }
