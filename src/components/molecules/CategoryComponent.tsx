@@ -1,153 +1,98 @@
-import React from 'react';
-import {View, ScrollView} from 'react-native';
-import {ICategory} from '@util/interface';
-import TouchableText from '@components/atoms/TouchableText';
+import React, { useCallback, useState } from 'react';
+import { StyleSheet, Text, FlatList, Pressable, View } from 'react-native';
 
-function CategoryComponent(props: ICategory): JSX.Element {
-  return (
-    <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
-      <View
-        style={{
-          marginTop: 16 / 2,
-          marginBottom: 16 / 2,
-          marginRight: 10 / 2,
-          marginLeft: 10 / 2,
-        }}>
-        <TouchableText
-          text="전체"
-          bgColor="#FFED00"
-          pt={10}
-          pb={10}
-          pl={16}
-          pr={16}
-          radius={20}
-          onPress={() => {
-            console.log('assasasaas');
-          }}
+const CategoryData = [
+    {
+        id: 'entire',
+        title: '전체',
+    },
+    {
+        id: 'politics',
+        title: '정치',
+    },
+    {
+        id: 'economy',
+        title: '경제',
+    },
+    {
+        id: 'society',
+        title: '사회',
+    },
+    {
+        id: 'life',
+        title: '생활',
+    },
+    {
+        id: 'informationTechnology',
+        title: 'IT/과학',
+    },
+    {
+        id: 'ranking',
+        title: '랭킹',
+    },
+] as const;
+
+type CategoryId = (typeof CategoryData)[number]['id'];
+
+const CategoryComponent = () => {
+    const [selectedCategoryData, setSelectedCategoryData] = useState<CategoryId>(CategoryData[0].id);
+
+    const Item = useCallback(({ id, title, selected }: { id: CategoryId; title: string; selected: boolean }) => {
+        return (
+            <Pressable
+                style={selected ? styles.selectedItem : styles.unselectedItem}
+                onPress={() => setSelectedCategoryData(id)}>
+                <Text style={styles.title}>{title}</Text>
+            </Pressable>
+        );
+    }, []);
+
+    return (
+        <FlatList
+            data={CategoryData}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.container}
+            renderItem={({ item }) => (
+                <Item id={item.id} title={item.title} selected={item.id === selectedCategoryData} />
+            )}
+            ItemSeparatorComponent={() => <View style={styles.separator} />}
+            keyExtractor={item => item.id}
         />
-      </View>
-      <View
-        style={{
-          marginTop: 16 / 2,
-          marginBottom: 16 / 2,
-          marginRight: 10 / 2,
-          marginLeft: 10 / 2,
-        }}>
-        <TouchableText
-          text="정치"
-          bgColor="#D9D9D9"
-          pt={10}
-          pb={10}
-          pl={16}
-          pr={16}
-          radius={20}
-          onPress={() => {
-            console.log('assasasaas');
-          }}
-        />
-      </View>
-      <View
-        style={{
-          marginTop: 16 / 2,
-          marginBottom: 16 / 2,
-          marginRight: 10 / 2,
-          marginLeft: 10 / 2,
-        }}>
-        <TouchableText
-          text="경제"
-          bgColor="#D9D9D9"
-          pt={10}
-          pb={10}
-          pl={16}
-          pr={16}
-          radius={20}
-          onPress={() => {
-            console.log('assasasaas');
-          }}
-        />
-      </View>
-      <View
-        style={{
-          marginTop: 16 / 2,
-          marginBottom: 16 / 2,
-          marginRight: 10 / 2,
-          marginLeft: 10 / 2,
-        }}>
-        <TouchableText
-          text="사회"
-          bgColor="#D9D9D9"
-          pt={10}
-          pb={10}
-          pl={16}
-          pr={16}
-          radius={20}
-          onPress={() => {
-            console.log('assasasaas');
-          }}
-        />
-      </View>
-      <View
-        style={{
-          marginTop: 16 / 2,
-          marginBottom: 16 / 2,
-          marginRight: 10 / 2,
-          marginLeft: 10 / 2,
-        }}>
-        <TouchableText
-          text="생활"
-          bgColor="#D9D9D9"
-          pt={10}
-          pb={10}
-          pl={16}
-          pr={16}
-          radius={20}
-          onPress={() => {
-            console.log('assasasaas');
-          }}
-        />
-      </View>
-      <View
-        style={{
-          marginTop: 16 / 2,
-          marginBottom: 16 / 2,
-          marginRight: 10 / 2,
-          marginLeft: 10 / 2,
-        }}>
-        <TouchableText
-          text="IT/과학"
-          bgColor="#D9D9D9"
-          pt={10}
-          pb={10}
-          pl={16}
-          pr={16}
-          radius={20}
-          onPress={() => {
-            console.log('assasasaas');
-          }}
-        />
-      </View>
-      <View
-        style={{
-          marginTop: 16 / 2,
-          marginBottom: 16 / 2,
-          marginRight: 10 / 2,
-          marginLeft: 10 / 2,
-        }}>
-        <TouchableText
-          text="랭킹"
-          bgColor="#D9D9D9"
-          pt={10}
-          pb={10}
-          pl={16}
-          pr={16}
-          radius={20}
-          onPress={() => {
-            console.log('assasasaas');
-          }}
-        />
-      </View>
-    </ScrollView>
-  );
-}
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        paddingHorizontal: 16,
+        paddingVertical: 16,
+    },
+    selectedItem: {
+        backgroundColor: '#FFED00',
+        paddingVertical: 10,
+        paddingHorizontal: 16,
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 40,
+        borderRadius: 20,
+    },
+    unselectedItem: {
+        backgroundColor: '#D9D9D9',
+        paddingVertical: 10,
+        paddingHorizontal: 16,
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 40,
+        borderRadius: 20,
+    },
+    separator: {
+        width: 10,
+    },
+    title: {
+        fontSize: 12,
+        fontWeight: 'bold',
+        color: '#000000',
+    },
+});
 
 export default CategoryComponent;
