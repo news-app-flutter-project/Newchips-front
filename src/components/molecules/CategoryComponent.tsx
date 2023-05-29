@@ -69,6 +69,8 @@ const styles = StyleSheet.create({
     },
     selectedItem: {
         backgroundColor: '#FFED00',
+        borderWidth: 1,
+        borderColor: '#FFED00',
         paddingVertical: 10,
         paddingHorizontal: 16,
         alignItems: 'center',
@@ -77,7 +79,9 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     unselectedItem: {
-        backgroundColor: '#D9D9D9',
+        backgroundColor: '#FFFFFF',
+        borderWidth: 1,
+        borderColor: '#D9D9D9',
         paddingVertical: 10,
         paddingHorizontal: 16,
         alignItems: 'center',
