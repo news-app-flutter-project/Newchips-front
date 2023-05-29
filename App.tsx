@@ -11,6 +11,7 @@ import LoginScreen from '@components/screens/LoginScreen';
 import HomeScreen from '@components/screens/HomeScreen';
 import rootReducer from './RTK/slices';
 import NavigateComponent from '@components/molecules/NavigateComponent';
+import { RootStackNavigation } from '~/navigation/RootNavigation';
 
 const Tab = createBottomTabNavigator();
 function App(): JSX.Element {
@@ -28,14 +29,7 @@ function App(): JSX.Element {
                 <SafeAreaView style={[backgroundStyle, styles.container]}>
                     <StatusBar translucent={true} backgroundColor="transparent" barStyle="dark-content" />
                     <NavigationContainer>
-                        <Tab.Navigator
-                            tabBar={props => <NavigateComponent {...props} />}
-                            screenOptions={{ headerShown: false }}>
-                            <Tab.Screen name="Home" component={HomeScreen} />
-                            <Tab.Screen name="Search" component={LoginScreen} />
-                            <Tab.Screen name="MyNews" component={TestScreen} />
-                            <Tab.Screen name="Profile" component={HomeScreen} />
-                        </Tab.Navigator>
+                        <RootStackNavigation />
                     </NavigationContainer>
                 </SafeAreaView>
             </SafeAreaProvider>
